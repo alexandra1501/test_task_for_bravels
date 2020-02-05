@@ -1,0 +1,9 @@
+<div class="text-center">
+  <h1>Resources</h1>
+  <%= link_to 'New', new_resource_path %>
+  <%= link_to 'Back', articles_path %>
+ 
+  <% @resources.each do |resource| %>
+    <p><%= resource.url %></p>
+  <% end %>
+</div>
