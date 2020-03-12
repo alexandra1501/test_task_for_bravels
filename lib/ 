@@ -1,0 +1,5 @@
+require 'open-uri'
+require 'nokogiri'
+
+html = Nokogiri::HTML(open(url))
+return html.css('body')
