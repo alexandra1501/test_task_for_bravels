@@ -8,6 +8,8 @@ class ArticleDetector
       result_persentage = (child.text.length.to_f / body.text.length) * 100
       if result_persentage > 51
         get(child)
+      else
+        child
       end
     end
   end

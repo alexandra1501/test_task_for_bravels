@@ -1,12 +1,11 @@
 require 'rails_helper'
-require './lib/article_detector'
+require './lib/article_detector.rb'
 
 RSpec.describe ArticleDetector do
   let!(:resource) { create(:resource) }
 
-  it('creates article from given html') do
-    expect do
-      described_class.open_by_url(resource.url, resource.id)
-    end.to change { Article.count }.by(1)
+  it('should return tag') do
+    html = Nokogiri::HTML(open(resource.url))
+    expect(described_class.get(html).to_s).to start_with('<html')
   end
 end
